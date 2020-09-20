@@ -1,1 +1,1 @@
-select pfirstname || ' ' || plastname as "Full Name" from people order by plastname asc;
+select pstate || ' HAS THE CITY ' || pcity as "TOWNS" from people order by pstate desc, pcity asc;
