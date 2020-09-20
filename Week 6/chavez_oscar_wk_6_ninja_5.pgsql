@@ -1,0 +1,1 @@
+select lidesired, lipurchased, lidesired - lipurchased as "Items Still Desired" from listitems;
