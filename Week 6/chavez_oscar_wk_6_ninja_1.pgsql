@@ -1,0 +1,1 @@
+select distinct pcity from people order by pcity asc;
