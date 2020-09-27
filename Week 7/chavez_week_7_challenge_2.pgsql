@@ -1,0 +1,1 @@
+SELECT pfirstname || ' ' || plastname || ' is ' || cast(extract(day from cast('now' as date) - pdob) as int) / 365|| ' years old' as "AGE" from people order by pdob ASC;
