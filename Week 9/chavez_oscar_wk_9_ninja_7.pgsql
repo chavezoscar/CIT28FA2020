@@ -1,4 +1,4 @@
 select pfirstname, plastname, pcity
 from people 
-where pcity like '%b%'
+where pcity like '%b%';
 
