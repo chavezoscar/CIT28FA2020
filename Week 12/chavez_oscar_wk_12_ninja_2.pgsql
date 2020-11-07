@@ -1,3 +1,3 @@
-SELECT people.pfirstname, people.plastname 
-from people 
-where people.pfirstname like '%e%';
+SELECT movies.mname, rentals.rid, customers.cname
+from customers natural right join rentals
+natural right join movies; 
