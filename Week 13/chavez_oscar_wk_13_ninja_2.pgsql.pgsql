@@ -1,3 +1,5 @@
-SELECT people.pfirstname, people.plastname,  people.pdob
-from people 
-where people.pdob < cast('now' as timestamp) - CAST('10 years' as interval);
+select customers.cname, movies.mname, rentals.rid 
+from customers join rentals using (cid)
+join movies using (mid)
+limit 10; 
+
