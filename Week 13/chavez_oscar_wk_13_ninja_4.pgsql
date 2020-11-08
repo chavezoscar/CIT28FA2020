@@ -1,3 +1,3 @@
-SELECT people.pfirstname, people.plastname 
-from people 
-where people.pfirstname like '%e%';
+select department.dept,
+(SELECT employees.ename from employees where department.eid = employees.eid) 
+from department; 
