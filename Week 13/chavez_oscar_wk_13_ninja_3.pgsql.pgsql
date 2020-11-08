@@ -1,5 +1,7 @@
-SELECT people.pfirstname, people.plastname, people.pstate, people.pdob
-from people 
-where (people.pfirstname like '%e%' or people.plastname like '%e%')
-        and people.pstate = 'CA'
-    and people.pdob > '12/31/1999';
+-- select employees.ename, department.dept
+-- from employees join department
+-- using(eid);
+
+SELECT employees.ename, 
+(select department.dept from department where department.eid = employees.eid)
+from employees; 
