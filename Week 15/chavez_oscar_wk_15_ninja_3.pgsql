@@ -1,5 +1,5 @@
-select pfirstname, plastname, 
-(select count(*) from listitems where listitems.lid = lists.lid)
-from people join lists using (pid)
-where (select count(*) from listitems where listitems.lid = lists.lid) > 1
+select pfirstname, plastname,
+count(lid)
+from people NATURAL left join lists
+group by pfirstname, plastname
 order by count DESC;
