@@ -1,5 +1,9 @@
-select pfirstname, plastname, 
-(select count(*) from listitems where listitems.lid = lists.lid)
-from people join lists using (pid)
-where (select count(*) from listitems where listitems.lid = lists.lid) > 1
-order by count DESC;
+delete from people
+where pid in (select pid
+    where (select count(liid)
+    from people as i natural left join lists
+        natural left join listitems
+        where people.pid = i.pid
+        group by pid) <= 4)
+
+select 'Yay!' as 'Message';
