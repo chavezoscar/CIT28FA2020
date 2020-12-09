@@ -1,5 +1,4 @@
-select pfirstname, plastname, 
-(select count(*) from listitems where listitems.lid = lists.lid)
-from people join lists using (pid)
-where (select count(*) from listitems where listitems.lid = lists.lid) > 1
-order by count DESC;
+update people
+set ppoints = ppoints + 100
+where ppoints == (select avg(ppoints) from people)
+returning pid, ppoints;
