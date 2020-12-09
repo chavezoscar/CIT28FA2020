@@ -1,9 +1,6 @@
-select * 
-from people 
-order by ppoints desc limit 2;
-
-update people 
-set pfirstname = 'James'
-    plastname = 'Bond'
-where pid = (select pi pid from people order by ppoints desc limit 1)
-returning *; 
+select *
+from people
+order by pid
+limit 10
+offset 10
+fetch next 10 rows only;
