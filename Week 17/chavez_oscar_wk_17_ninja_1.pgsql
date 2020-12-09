@@ -1,7 +1,2 @@
-select people.pfirstname, people.plastname, people.ppoints
-from people
-where ppoints > (select avg(ppoints) from people);
-
-select count(*)
-from people
-where ppoints > (select avg(ppoints) from people);
+delete from people
+where ppoints <= ((select min(ppoints)from people) + 1000)
