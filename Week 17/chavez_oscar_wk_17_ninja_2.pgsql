@@ -1,5 +1,6 @@
-SELECT people.pfirstname, people.plastname, 
-(SELECT count(*) from lists where lists.pid = people.pid)
-as amt
-from people
-order by amt DESC; 
+delete from people
+where pid in (select pid
+    where (select count(lid)
+        from people as i natural left join lists
+        where people.pid = i.pid
+        group by pid) <= 2);
