@@ -1,5 +1,12 @@
-select pfirstname, plastname, 
-(select count(*) from listitems where listitems.lid = lists.lid)
-from people join lists using (pid)
-where (select count(*) from listitems where listitems.lid = lists.lid) > 1
-order by count DESC;
+select pid count(lid)
+from people natural join lists
+group by pid
+order by count desc;
+
+update people 
+set ppoints = ppoints + 1000
+where pid in (select pid
+    where (select count(lid)
+            from lists
+            where people.pid = lists.pid
+            group by pid)> 1)
