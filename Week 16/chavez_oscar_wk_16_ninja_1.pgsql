@@ -1,7 +1,6 @@
-select people.pfirstname, people.plastname, people.ppoints
+select *
 from people
-where ppoints > (select avg(ppoints) from people);
-
-select count(*)
-from people
-where ppoints > (select avg(ppoints) from people);
+order by pid
+limit 10
+offset 10
+fetch next 10 rows only;
